@@ -1,0 +1,14 @@
+http://blzdistsc2-a.akamaihd.net/MapPacks/Ladder2017Season1.zip
+http://blzdistsc2-a.akamaihd.net/MapPacks/Ladder2017Season2.zip
+http://blzdistsc2-a.akamaihd.net/MapPacks/Ladder2017Season3_Updated.zip
+http://blzdistsc2-a.akamaihd.net/MapPacks/Ladder2017Season4.zip
+http://blzdistsc2-a.akamaihd.net/MapPacks/Ladder2018Season1.zip
+http://blzdistsc2-a.akamaihd.net/MapPacks/Ladder2018Season2_Updated.zip
+http://blzdistsc2-a.akamaihd.net/MapPacks/Ladder2018Season3.zip
+http://blzdistsc2-a.akamaihd.net/MapPacks/Ladder2018Season4.zip
+http://blzdistsc2-a.akamaihd.net/MapPacks/Ladder2019Season1.zip
+http://blzdistsc2-a.akamaihd.net/MapPacks/Ladder2019Season2.zip
+http://blzdistsc2-a.akamaihd.net/MapPacks/Ladder2019Season3.zip
+http://blzdistsc2-a.akamaihd.net/MapPacks/Melee.zip
+http://blzdistsc2-a.akamaihd.net/MapPacks/Ladder2017Season3.zip
+https://github.com/deepmind/pysc2/releases/download/v1.2/mini_games.zip
