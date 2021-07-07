@@ -14,8 +14,13 @@ In order to run this container you'll need docker installed.
 
 ### Usage
 
-Currently exist only one image:
+Docker pull command:
 
+```shell
+docker pull alvarofpp/s2client
+```
+
+And run:
 ```shell
 docker run alvarofpp/s2client
 ```
