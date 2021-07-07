@@ -14,7 +14,7 @@ In order to run this container you'll need docker installed.
 
 ### Usage
 
-Currently exist only one image (without tag):
+Currently exist only one image:
 
 ```shell
 docker run alvarofpp/s2client
