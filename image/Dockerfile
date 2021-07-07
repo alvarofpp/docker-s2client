@@ -1,5 +1,5 @@
 ###
-# StarCraft II Learning Environment (SC2LE)
+# Docker for StarCraft II Client
 #
 # Author: Álvaro Ferreira Pires de Paiva (alvarofepipa@gmail.com)
 #
@@ -16,8 +16,10 @@ RUN apt-get update -yq \
  wget \
  unzip \
  vim \
+ nano \
  cmake \
  sudo \
+ arandr \
  && useradd -m docker \
  && echo "docker:docker" | chpasswd \
  && adduser docker sudo
@@ -36,11 +38,10 @@ rm *.zip && \
 rm maps.txt
 
 # Expose the API listen port
-EXPOSE 12000
+ENV CLIENT_PORT 12000
+EXPOSE $CLIENT_PORT
 
 # Start SC2 with API listen port
-ENTRYPOINT [ "/root/StarCraftII/Versions/Base75689/SC2_x64", \
-    "-listen", \
-    "0.0.0.0", \
-    "-port", \
-    "12000" ]
+ENTRYPOINT /root/StarCraftII/Versions/Base75689/SC2_x64 \
+    -listen 0.0.0.0 \
+    -port $CLIENT_PORT
