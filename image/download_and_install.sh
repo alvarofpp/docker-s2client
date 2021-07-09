@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Download and install starcraft headless build
-wget http://blzdistsc2-a.akamaihd.net/Linux/SC2.$VERSION.zip &&
+wget http://blzdistsc2-a.akamaihd.net/Linux/SC2.$PART_FILENAME.zip &&
   unzip -P iagreetotheeula SC2.$PART_FILENAME.zip -d ~/ &&
   rm *.zip
 
