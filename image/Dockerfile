@@ -24,24 +24,28 @@ RUN apt-get update -yq \
  && echo "docker:docker" | chpasswd \
  && adduser docker sudo
 
-# Download and install starcraft headless build
-RUN wget http://blzdistsc2-a.akamaihd.net/Linux/SC2.4.10.zip && \
-unzip -P iagreetotheeula SC2.4.10.zip -d ~/ && \
-rm *.zip
+# Build arguments
+ARG VERSION=4.10
 
-# Download and install starcraft maps
+# Script to download and install StarCraft II
+COPY check_version.sh check_version.sh
+COPY download_and_install.sh download_and_install.sh
 COPY maps.txt maps.txt
+RUN chmod +x /*.sh
+RUN /check_version.sh download_and_install.sh
 
-RUN wget -i maps.txt && \
-grep -E '[a-zA-Z0-9\_]+\.zip' maps.txt -o | xargs -I '{}' unzip -P iagreetotheeula -o '{}' -d ~/StarCraftII/Maps/ && \
-rm *.zip && \
-rm maps.txt
+# Create the script to run the client
+COPY run_client.sh run_client.sh
+COPY replace_run_client.sh replace_run_client.sh
+RUN chmod +x /*.sh
+RUN /check_version.sh replace_run_client.sh
+
+# Remove unused scripts
+RUN rm download_and_install.sh replace_run_client.sh
 
 # Expose the API listen port
 ENV CLIENT_PORT 12000
 EXPOSE $CLIENT_PORT
 
 # Start SC2 with API listen port
-ENTRYPOINT /root/StarCraftII/Versions/Base75689/SC2_x64 \
-    -listen 0.0.0.0 \
-    -port $CLIENT_PORT
+ENTRYPOINT ["./run_client.sh"]
