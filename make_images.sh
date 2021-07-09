@@ -21,9 +21,8 @@ VERSIONS=(
   4.10
 )
 
-for VERSION in "${VERSIONS[@]}"
-do
-	docker build --build-arg VERSION=$VERSION image/. -t alvarofpp/s2client:$VERSION
+for VERSION in "${VERSIONS[@]}"; do
+  docker build --build-arg VERSION=$VERSION image/. -t alvarofpp/s2client:$VERSION
 done
 
 docker build --build-arg VERSION=$VERSION image/. -t alvarofpp/s2client:latest
