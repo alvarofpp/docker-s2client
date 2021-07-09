@@ -2,6 +2,8 @@
 
 This docker image was built to facilitate the development of scripted bots and research using the [s2client-proto](https://github.com/Blizzard/s2client-proto).
 
+[![Docker Hub](https://img.shields.io/badge/-Docker_Hub-0062cc?style=for-the-badge&logo=Docker&logoColor=white)](https://hub.docker.com/r/alvarofpp/s2client)
+
 ## Tags
 
 This docker image have one tag for each one version listed in [Linux Packages](https://github.com/Blizzard/s2client-proto#linux-packages).
