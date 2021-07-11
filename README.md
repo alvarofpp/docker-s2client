@@ -50,11 +50,15 @@ docker run --env CLIENT_PORT=13000 alvarofpp/s2client:<version>
 
 - `CLIENT_PORT` - The port the client runs on. By default is `12000`.
 
-#### Useful File Locations
+## Maps and minigames
+This image already comes with the all maps listed in [Map Packs](http://blzdistsc2-a.akamaihd.net/MapPacks/Ladder2017Season3_Updated.zip) and the [pysc2's minigames (version 1.2)](https://github.com/deepmind/pysc2/releases/tag/v1.2).
+But if you need add more maps or minigames, you can through the command:
 
-Inside the `image` folder in this repository.
+```shell
+docker cp <map_folder> <container_id>:/root/StarCraftII/Maps/
+```
 
-- `/maps.txt` - List of all downloaded maps for the image.
+All maps and minigames downloaded for the image are listed in `image/maps.txt`.
 
 ## Contributing
 
