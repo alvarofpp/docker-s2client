@@ -59,6 +59,50 @@ docker cp <map_folder> <container_id>:/root/StarCraftII/Maps/
 
 All maps and minigames downloaded for the image are listed in `image/maps.txt`.
 
+## Display graphics (Linux)
+
+If you want to display graphics during the script execution, you can follow the steps below: 
+
+### Step 1
+
+```shell
+docker run -i -t -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix:ro alvarofpp/s2client:<version>
+```
+
+Description:
+- `-i`: sets up an interactive session;
+- `-t`: allocates a pseudo tty;
+- `-e`: sets the host display to the local machines display (which will usually be `:0`);
+- `-v`: bind mounts the `X11` socket residing in `/tmp/.X11-unix` on your local machine into `/tmp/.X11-unix` in the container and `:ro` makes the socket read only.
+
+### Step 2
+
+In your local machine:
+
+```shell
+xhost +
+# access control disabled, clients can connect from any host
+
+xhost
+# access control disabled, clients can connect from any host
+# SI:localuser:username
+```
+
+Save the last line of the `xhost` result (in this example it's `SI:localuser:username`) for use in the next step.
+
+### Step 3
+
+In your docker container:
+
+```shell
+xhost +si:localuser:username
+# localuser:username being added to access control list
+```
+
+Done! After that, you can run your script.
+
+Reference [here](https://stackoverflow.com/questions/25281992/alternatives-to-ssh-x11-forwarding-for-docker-containers).
+
 ## Contributing
 
 Contributions are more than welcome. Fork, improve and make a pull request. For bugs, ideas for improvement or other, please create an [issue](https://github.com/alvarofpp/docker-s2client/issues).
