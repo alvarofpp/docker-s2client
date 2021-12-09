@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 VERSIONS=(
   3.16.1
@@ -22,7 +22,7 @@ VERSIONS=(
 )
 
 for VERSION in "${VERSIONS[@]}"; do
-  docker build --build-arg VERSION=$VERSION image/. -t alvarofpp/s2client:$VERSION
+  docker build --build-arg VERSION="${VERSION}" image/. -t alvarofpp/s2client:"${VERSION}"
 done
 
-docker build --build-arg VERSION=$VERSION image/. -t alvarofpp/s2client:latest
+docker build --build-arg VERSION="${VERSION}" image/. -t alvarofpp/s2client:latest

@@ -6,23 +6,19 @@
 # Inspired by https://github.com/Frager/Deep-Neuroevolution-In-SC2LE/blob/master/Dockerfile
 #
 FROM ubuntu:20.04
-MAINTAINER Álvaro FPP <alvarofepipa@gmail.com>
 
 RUN apt-get update -yq \
- && apt-get install -yq \
- net-tools \
- htop \
- software-properties-common \
- wget \
- unzip \
- vim \
- nano \
- cmake \
- sudo \
- arandr \
- && useradd -m docker \
- && echo "docker:docker" | chpasswd \
- && adduser docker sudo
+    && apt-get install --no-install-recommends -yq \
+    net-tools \
+    htop \
+    software-properties-common \
+    wget \
+    unzip \
+    vim \
+    nano \
+    cmake \
+    arandr \
+    && rm -rf /var/lib/apt/lists/*
 
 # Build arguments
 ARG VERSION=4.10
