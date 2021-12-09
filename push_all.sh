@@ -22,7 +22,7 @@ VERSIONS=(
 )
 
 for VERSION in "${VERSIONS[@]}"; do
-  docker build --build-arg VERSION="${VERSION}" image/. -t alvarofpp/s2client:"${VERSION}"
+  docker push alvarofpp/s2client:"${VERSION}"
 done
 
-docker build --build-arg VERSION="${VERSION}" image/. -t alvarofpp/s2client:latest
+docker push alvarofpp/s2client:latest
