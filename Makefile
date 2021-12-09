@@ -13,7 +13,7 @@ install-hooks:
 
 .PHONY: build
 build: install-hooks
-	@docker build --build-arg VERSION=$VERSION ${DIR} -t alvarofpp/s2client:$VERSION
+	@docker build --build-arg VERSION=${VERSION} ${DIR} -t alvarofpp/s2client:${VERSION}
 
 .PHONY: build-all
 build-all: install-hooks
@@ -21,11 +21,11 @@ build-all: install-hooks
 
 .PHONY: build-no-cache
 build-no-cache: install-hooks
-	@docker build --build-arg VERSION=$VERSION ${DIR} -t alvarofpp/s2client:$VERSION --no-cache
+	@docker build --build-arg VERSION=${VERSION} ${DIR} -t alvarofpp/s2client:${VERSION} --no-cache
 
 .PHONY: push
 push:
-	@docker push ${DOCKER_IMAGE}
+	@docker push ${DOCKER_IMAGE}:${VERSION}
 
 .PHONY: push-all
 push-all:
