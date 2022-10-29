@@ -1,0 +1,57 @@
+---
+name: CD
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'image/**'
+
+env:
+  IMAGE_NAME: alvarofpp/s2client
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    name: Build and push [${{ matrix.version }}]
+    strategy:
+      matrix:
+        version:
+          - "3.16.1"
+          - "3.17"
+          - "4.0.2"
+          - "4.1.2"
+          - "4.6"
+          - "4.6.1"
+          - "4.6.2"
+          - "4.7"
+          - "4.7.1"
+          - "4.8.2"
+          - "4.8.3"
+          - "4.8.4"
+          - "4.8.6"
+          - "4.9.0"
+          - "4.9.1"
+          - "4.9.2"
+          - "4.9.3"
+          - "4.10"
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build
+        run: docker build --build-arg VERSION="${VERSION}" image/. -t ${DOCKER_IMAGE}
+        env:
+          VERSION: ${{ matrix.version }}
+          DOCKER_IMAGE: ${{ env.IMAGE_NAME }}:${{ matrix.version }}
+
+      - name: Push
+        run: docker push ${DOCKER_IMAGE}
+        env:
+          DOCKER_IMAGE: ${{ env.IMAGE_NAME }}:${{ matrix.version }}
