@@ -61,6 +61,19 @@ docker cp <map_folder> <container_id>:/root/StarCraftII/Maps/
 
 All maps and minigames downloaded for the image are listed in `image/maps.txt`.
 
+## Use multi-stage builds
+
+Using Docker's multi-stage, you can copy the StarCraft 2 files
+and use it in your own Docker image.
+
+```dockerfile
+FROM alvarofpp/s2client:4.10 AS sc2client
+FROM python:3.9.10
+
+# ...
+COPY --from=sc2client /root/StarCraftII /root/StarCraftII
+```
+
 ## Display graphics (Linux)
 
 If you want to display graphics during the script execution, you can follow the steps below.
