@@ -36,13 +36,13 @@ docker pull alvarofpp/s2client:<version>
 And run the client:
 
 ```shell
-docker run alvarofpp/s2client:<version>
+docker run --rm alvarofpp/s2client:<version> run_client
 ```
 
 Run your client in a specific port:
 
 ```shell
-docker run --env CLIENT_PORT=13000 alvarofpp/s2client:<version>
+docker run --rm --env CLIENT_PORT=13000 alvarofpp/s2client:<version> run_client
 ```
 
 #### Environment Variables

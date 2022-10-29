@@ -42,6 +42,3 @@ RUN rm download_and_install.sh replace_run_client.sh
 # Expose the API listen port
 ENV CLIENT_PORT 12000
 EXPOSE $CLIENT_PORT
-
-# Start SC2 with API listen port
-ENTRYPOINT ["./run_client.sh"]
