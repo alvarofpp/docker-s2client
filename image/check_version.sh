@@ -19,11 +19,10 @@ case $VERSION in
 4.9.2) DIR=Base74741 PART_FILENAME=4.9.2 ;;
 4.9.3) DIR=Base75025 PART_FILENAME=4.9.3 ;;
 4.10) DIR=Base75689 PART_FILENAME=4.10 ;;
-*) echo "Version not supported" ;;
+*) echo "Version not supported" ; exit 1 ;
 esac
 
-export VERSION
-export DIR
-export PART_FILENAME
+export DIR=$DIR
+export PART_FILENAME=$PART_FILENAME
 
 bash "$@"

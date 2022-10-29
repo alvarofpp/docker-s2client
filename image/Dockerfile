@@ -28,13 +28,13 @@ COPY check_version.sh check_version.sh
 COPY download_and_install.sh download_and_install.sh
 COPY maps.txt maps.txt
 RUN chmod +x /*.sh
-RUN /check_version.sh download_and_install.sh
+RUN ./check_version.sh download_and_install.sh
 
 # Create the script to run the client
 COPY run_client.sh run_client.sh
 COPY replace_run_client.sh replace_run_client.sh
 RUN chmod +x /*.sh
-RUN /check_version.sh replace_run_client.sh
+RUN ./check_version.sh replace_run_client.sh
 
 # Remove unused scripts
 RUN rm download_and_install.sh replace_run_client.sh

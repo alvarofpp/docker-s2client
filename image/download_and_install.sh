@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+sh ./check_version.sh
+
 # Download and install starcraft headless build
 wget http://blzdistsc2-a.akamaihd.net/Linux/SC2."${PART_FILENAME}".zip \
   && unzip -P iagreetotheeula SC2."${PART_FILENAME}".zip -d ~/ \
@@ -22,7 +24,6 @@ if [[ " ${VERSIONS_WITH_DIFFERENT_FOLDER[*]} " =~ ${VERSION} ]]; then
 fi
 
 # Download and install starcraft maps
-wget -i maps.txt &&
-  grep -E '[a-zA-Z0-9\_]+\.zip' maps.txt -o | xargs -I '{}' unzip -P iagreetotheeula -o '{}' -d ~/StarCraftII/Maps/ \
-  && rm ./*.zip \
-  && rm maps.txt
+wget -i maps.txt
+grep -E '[a-zA-Z0-9\_]+\.zip' maps.txt -o | xargs -I '{}' unzip -P iagreetotheeula -o '{}' -d ~/StarCraftII/Maps/
+rm ./*.zip maps.txt
