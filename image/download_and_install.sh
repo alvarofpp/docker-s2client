@@ -15,9 +15,8 @@ VERSIONS_WITH_DIFFERENT_FOLDER=(
   4.9.2
   4.9.3
 )
-# shellcheck disable=SC2199
-# shellcheck disable=SC2076
-if [[ " ${VERSIONS_WITH_DIFFERENT_FOLDER[@]} " =~ " ${VERSION} " ]]; then
+
+if [[ " ${VERSIONS_WITH_DIFFERENT_FOLDER[*]} " =~ ${VERSION} ]]; then
   mv ~/SC2."${VERSION}"/* ~/
   rmdir ~/SC2."${VERSION}"
 fi

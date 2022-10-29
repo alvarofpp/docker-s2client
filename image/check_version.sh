@@ -22,11 +22,8 @@ case $VERSION in
 *) echo "Version not supported" ;;
 esac
 
-# shellcheck disable=SC2163
 export VERSION
-# shellcheck disable=SC2163
 export DIR
-# shellcheck disable=SC2163
 export PART_FILENAME
 
 bash "$@"
