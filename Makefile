@@ -1,6 +1,6 @@
 # Variables
 DOCKER_IMAGE=alvarofpp/s2client
-DOCKER_IMAGE_LINTER=alvarofpp/base:linter
+DOCKER_IMAGE_LINTER=alvarofpp/linter:latest
 ROOT=$(shell pwd)
 DIR=image/
 LINT_COMMIT_TARGET_BRANCH=origin/main
